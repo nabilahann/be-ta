@@ -59,5 +59,5 @@ def predict_data(filename):
         'Access-Control-Allow-Origin': '*'
     } 
 
-# Start the Flask server in a new thread
-threading.Thread(target=app.run).start()
+if __name__ == '__main__':
+    app.run()
