@@ -60,4 +60,4 @@ def predict_data(filename):
     } 
 
 # Start the Flask server in a new thread
-threading.Thread(target=app.run, kwargs={"use_reloader": False}).start()
+threading.Thread(target=app.run).start()
