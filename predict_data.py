@@ -62,25 +62,25 @@ def predict(filename):
     # load path
     input_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "file", filename)
 
-    # #### convert to wav (if not wav)
-    # file_extension = filename.rsplit('.', 1)[1]
+    #### convert to wav (if not wav)
+    file_extension = filename.rsplit('.', 1)[1]
     
-    # if file_extension != "wav":
-    #     import pydub
-    #     pydub.AudioSegment.ffmpeg = "d:\ffmpeg"
-    #     dest_path = input_path.rsplit('.', 1)[0] + '.wav'
-    #     print(dest_path)
-    #     if file_extension == "ogg" :
-    #         song = AudioSegment.from_ogg(input_path)
-    #         song.export(dest_path, format="wav")
-    #     elif file_extension == "mp3" :
-    #         print(input_path)
-    #         song = AudioSegment.from_mp3(input_path)
-    #         song.export(dest_path, format="wav")
-    #     else :
-    #        print("######### ERROR ######")
-    #        return
-    #     input_path = dest_path
+    if file_extension != "wav":
+        import pydub
+        pydub.AudioSegment.ffmpeg = "d:\ffmpeg"
+        dest_path = input_path.rsplit('.', 1)[0] + '.wav'
+        print(dest_path)
+        if file_extension == "ogg" :
+            song = AudioSegment.from_ogg(input_path)
+            song.export(dest_path, format="wav")
+        elif file_extension == "mp3" :
+            print(input_path)
+            song = AudioSegment.from_mp3(input_path)
+            song.export(dest_path, format="wav")
+        else :
+           print("######### ERROR ######")
+           return
+        input_path = dest_path
 
     ### cleaning data #####
     test_path = os.path.join(os.path.abspath(os.path.dirname(__file__)),'file', 'data_clean.wav')

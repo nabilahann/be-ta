@@ -1,14 +1,16 @@
 from flask import Flask, request, send_from_directory, jsonify
+from flask_ngrok import run_with_ngrok
 import os
 from werkzeug.utils import secure_filename
 from predict_data import predict
 from flask_cors import CORS
 
-UPLOAD_FOLDER = '/KULIAH/TA/Code/be/file'
-ALLOWED_EXTENSIONS = {'mp3', 'wav'}
+UPLOAD_FOLDER = '/content/be-ta/file'
+ALLOWED_EXTENSIONS = {'mp3', 'wav', 'ogg'}
 
 app = Flask(__name__)
 cors = CORS(app)
+run_with_ngrok(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
